@@ -13,9 +13,9 @@ int var_ordo_3x3[3][3];
 int biggest,smallest;
 
 int main(){
+    awal:
     printf("Pilih ordo matrix, 2x2 maka 2 atau 3x3 maka 3 : ");
     scanf("%d", &pil_ordo);
-
     switch ( pil_ordo ){
     case 2:
         printf("\nmasukkan angka dalam matrix : \n");
@@ -36,7 +36,8 @@ int main(){
         }
         break;
     default:
-        break;
+        printf("Inputan anda salah...\n");
+        goto awal;
     }
 
     /* Find a Smallest & biggest value
