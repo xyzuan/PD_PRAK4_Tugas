@@ -10,7 +10,6 @@
 int pil_ordo;
 int var_ordo_2x2[2][2];
 int var_ordo_3x3[3][3];
-int biggest,smallest;
 
 int main(){
     awal:
