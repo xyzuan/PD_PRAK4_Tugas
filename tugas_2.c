@@ -58,17 +58,18 @@ int main(){
     printf("\nhasilnya adalah : \n");
     switch ( pil_ordo ){
     case 2:        
-        printf("%d\t%d\n%d\t%d\n", var_ordo_2x2[0][0], var_ordo_2x2[0][1],
-                                   var_ordo_2x2[1][0], var_ordo_2x2[1][1]);
+        printf("%d\t%d\n%d\t%d\n", 
+                ordo_2x2[0], ordo_2x2[1],
+                ordo_2x2[2], ordo_2x2[3]);
 
         ordo_max_min(ordo_2x2, 4);
         break;
 
     case 3:
         printf("%d\t%d\t%d\n%d\t%d\t%d\n%d\t%d\t%d\n",
-                var_ordo_3x3[0][0],var_ordo_3x3[0][1],var_ordo_3x3[0][2],
-                var_ordo_3x3[1][0],var_ordo_3x3[1][1],var_ordo_3x3[1][2],
-                var_ordo_3x3[2][0],var_ordo_3x3[2][1],var_ordo_3x3[2][2]);
+                ordo_3x3[0], ordo_3x3[1], ordo_3x3[2],
+                ordo_3x3[3], ordo_3x3[4], ordo_3x3[5],
+                ordo_3x3[6], ordo_3x3[7], ordo_3x3[8]);
 
         ordo_max_min(ordo_3x3, 9);
         break;
