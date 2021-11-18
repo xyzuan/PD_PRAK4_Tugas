@@ -1,3 +1,9 @@
+/*
+	Jody Yuantoro ( 2021-147 )
+	Informatics Engineering, Faculty of Engineering
+	University of Muhammadiyah Malang
+*/
+
 void ordo_max_min(int ordo_arrays[], int ordo_size)
 {
     int smallest = ordo_arrays[0];
