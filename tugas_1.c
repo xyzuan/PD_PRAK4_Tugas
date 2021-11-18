@@ -9,7 +9,6 @@
 int main(){
 
     int nilai_pd[2][3];
-    int banding;
 
     // Nilai Boruto
     printf("\nnilai boruto : \n");
