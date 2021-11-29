@@ -5,73 +5,67 @@
 */
 
 #include <stdio.h>
-#include "ordo_maxmin.h"
 
-int pil_ordo;
-int var_ordo_2x2[2][2];
-int var_ordo_3x3[3][3];
+int pil_ordo; int ordo_size;
+int var_ordo_2x2[2][2]; int var_ordo_3x3[3][3];
+
+int ordo_max_min(int ordo_arrays[], int ordo_size){
+    int smallest = ordo_arrays[0];
+    int biggest = ordo_arrays[0];
+    for (int index = 0; index < ordo_size; index++){
+        if (ordo_arrays[index] < smallest){
+            smallest = ordo_arrays[index];
+        } if (ordo_arrays[index] > biggest){
+            biggest = ordo_arrays[index];
+        }
+    } printf("smallest : %d\tbiggest : %d", smallest, biggest);
+}
 
 int main(){
     awal:
-    printf("Pilih ordo matrix, 2x2 maka 2 atau 3x3 maka 3 : ");
-    scanf("%d", &pil_ordo);
+    printf("Pilih ordo matrix, 2x2 maka 2 atau 3x3 maka 3 : "); scanf("%d", &pil_ordo);
     switch ( pil_ordo ){
     case 2:
         printf("\nmasukkan angka dalam matrix : \n");
-        for(int loop_ordo_x = 0; loop_ordo_x < 2; loop_ordo_x++){
-            for(int loop_ordo_y = 0; loop_ordo_y < 2; loop_ordo_y++){
-                printf("masukkan angka pada indeks [%d][%d] : ", loop_ordo_x ,loop_ordo_y);
-                scanf("%d", &var_ordo_2x2[loop_ordo_x][loop_ordo_y]);
+        ordo_size = 2;
+        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
+            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+                printf("masukkan angka pada indeks [%d][%d] : ", ordo_x ,ordo_y);
+                scanf("%d", &var_ordo_2x2[ordo_x][ordo_y]);  
             }
+        } printf("\nhasilnya adalah :\n");
+        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
+            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+                printf("%d\t", var_ordo_2x2[ordo_x][ordo_y]);
+            }   printf("\n");
         }
+        int ordo_2x2[4] = {var_ordo_2x2[0][0], var_ordo_2x2[0][1],
+                           var_ordo_2x2[1][0], var_ordo_2x2[1][1]};
+        ordo_max_min(ordo_2x2,ordo_size);
         break;
+
     case 3:
         printf("\nmasukkan angka dalam matrix : \n");
-        for(int loop_ordo_x = 0; loop_ordo_x < 3; loop_ordo_x++){
-            for(int loop_ordo_y = 0; loop_ordo_y < 3; loop_ordo_y++){
-                printf("masukkan angka pada indeks [%d][%d] : ", loop_ordo_x ,loop_ordo_y);
-                scanf("%d", &var_ordo_3x3[loop_ordo_x][loop_ordo_y]);
+        ordo_size = 3;
+        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
+            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+                printf("masukkan angka pada indeks [%d][%d] : ", ordo_x ,ordo_y);
+                scanf("%d", &var_ordo_3x3[ordo_x][ordo_y]);  
             }
+        } printf("\nhasilnya adalah :\n");
+        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
+            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+                printf("%d\t", var_ordo_3x3[ordo_x][ordo_y]);
+            }   printf("\n");
         }
+        int ordo_3x3[9] = {var_ordo_3x3[0][0], var_ordo_3x3[0][1],var_ordo_3x3[0][2],
+                           var_ordo_3x3[1][0], var_ordo_3x3[1][1],var_ordo_3x3[1][2],
+                           var_ordo_3x3[2][0], var_ordo_3x3[2][1],var_ordo_3x3[2][2]};
+        ordo_max_min(ordo_3x3,ordo_size);
         break;
+    
     default:
         printf("Inputan anda salah...\n");
         goto awal;
-    }
-
-    /* Find a Smallest & biggest value
-       in var_ordo_2x2 and var_ordo_3x3 */
-
-    /* Converting Multidimensional Array Ordo values
-       to Single Array
-    */
-    int ordo_2x2[4] = {var_ordo_2x2[0][0], var_ordo_2x2[0][1],
-                       var_ordo_2x2[1][0], var_ordo_2x2[1][1]};
-
-    int ordo_3x3[9] = {var_ordo_3x3[0][0], var_ordo_3x3[0][1],var_ordo_3x3[0][2],
-                       var_ordo_3x3[1][0], var_ordo_3x3[1][1],var_ordo_3x3[1][2],
-                       var_ordo_3x3[2][0], var_ordo_3x3[2][1],var_ordo_3x3[2][2]};
-
-    /* Result Output
-       Array list and smallest biggest array values
-    */
-    printf("\nhasilnya adalah : \n");
-    switch ( pil_ordo ){
-    case 2:        
-        printf("%d\t%d\n%d\t%d\n", 
-                ordo_2x2[0], ordo_2x2[1],
-                ordo_2x2[2], ordo_2x2[3]);
-
-        ordo_max_min(ordo_2x2, 4);
-        break;
-
-    case 3:
-        printf("%d\t%d\t%d\n%d\t%d\t%d\n%d\t%d\t%d\n",
-                ordo_3x3[0], ordo_3x3[1], ordo_3x3[2],
-                ordo_3x3[3], ordo_3x3[4], ordo_3x3[5],
-                ordo_3x3[6], ordo_3x3[7], ordo_3x3[8]);
-
-        ordo_max_min(ordo_3x3, 9);
-        break;
     }
 }
