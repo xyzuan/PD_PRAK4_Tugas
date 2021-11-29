@@ -7,11 +7,10 @@
 #include <stdio.h>
 
 int pil_ordo;
-int var_ordo_2x2[2][2]; int var_ordo_3x3[3][3];
+int var_ordo_2x2[2][2], var_ordo_3x3[3][3];
 
 int ordo_max_min(int *ordo_arrays, int ordo_size){
-    int smallest = ordo_arrays[0];
-    int biggest = ordo_arrays[0];
+    int smallest = ordo_arrays[0], biggest = ordo_arrays[0];
     for (int index = 0; index < ordo_size; index++){
         if (ordo_arrays[index] < smallest){
             smallest = ordo_arrays[index];
