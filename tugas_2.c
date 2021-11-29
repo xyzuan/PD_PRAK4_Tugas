@@ -6,10 +6,10 @@
 
 #include <stdio.h>
 
-int pil_ordo; int ordo_size;
+int pil_ordo;
 int var_ordo_2x2[2][2]; int var_ordo_3x3[3][3];
 
-int ordo_max_min(int ordo_arrays[], int ordo_size){
+int ordo_max_min(int *ordo_arrays, int ordo_size){
     int smallest = ordo_arrays[0];
     int biggest = ordo_arrays[0];
     for (int index = 0; index < ordo_size; index++){
@@ -27,41 +27,39 @@ int main(){
     switch ( pil_ordo ){
     case 2:
         printf("\nmasukkan angka dalam matrix : \n");
-        ordo_size = 2;
-        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
-            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+        for(int ordo_x = 0; ordo_x < pil_ordo; ordo_x++){
+            for(int ordo_y = 0; ordo_y < pil_ordo; ordo_y++){
                 printf("masukkan angka pada indeks [%d][%d] : ", ordo_x ,ordo_y);
                 scanf("%d", &var_ordo_2x2[ordo_x][ordo_y]);  
             }
         } printf("\nhasilnya adalah :\n");
-        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
-            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+        for(int ordo_x = 0; ordo_x < pil_ordo; ordo_x++){
+            for(int ordo_y = 0; ordo_y < pil_ordo; ordo_y++){
                 printf("%d\t", var_ordo_2x2[ordo_x][ordo_y]);
             }   printf("\n");
         }
         int ordo_2x2[4] = {var_ordo_2x2[0][0], var_ordo_2x2[0][1],
                            var_ordo_2x2[1][0], var_ordo_2x2[1][1]};
-        ordo_max_min(ordo_2x2,ordo_size);
+        ordo_max_min(ordo_2x2,4);
         break;
 
     case 3:
         printf("\nmasukkan angka dalam matrix : \n");
-        ordo_size = 3;
-        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
-            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+        for(int ordo_x = 0; ordo_x < pil_ordo; ordo_x++){
+            for(int ordo_y = 0; ordo_y < pil_ordo; ordo_y++){
                 printf("masukkan angka pada indeks [%d][%d] : ", ordo_x ,ordo_y);
                 scanf("%d", &var_ordo_3x3[ordo_x][ordo_y]);  
             }
         } printf("\nhasilnya adalah :\n");
-        for(int ordo_x = 0; ordo_x < ordo_size; ordo_x++){
-            for(int ordo_y = 0; ordo_y < ordo_size; ordo_y++){
+        for(int ordo_x = 0; ordo_x < pil_ordo; ordo_x++){
+            for(int ordo_y = 0; ordo_y < pil_ordo; ordo_y++){
                 printf("%d\t", var_ordo_3x3[ordo_x][ordo_y]);
             }   printf("\n");
         }
         int ordo_3x3[9] = {var_ordo_3x3[0][0], var_ordo_3x3[0][1],var_ordo_3x3[0][2],
                            var_ordo_3x3[1][0], var_ordo_3x3[1][1],var_ordo_3x3[1][2],
                            var_ordo_3x3[2][0], var_ordo_3x3[2][1],var_ordo_3x3[2][2]};
-        ordo_max_min(ordo_3x3,ordo_size);
+        ordo_max_min(ordo_3x3,9);
         break;
     
     default:
